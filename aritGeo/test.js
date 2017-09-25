@@ -1,56 +1,60 @@
-const expect = require("chai").expect;
+const assert = require("chai").assert;
 const myFile = require("./aritgeo.js");
 
-describe("Determine the sequence of an array of numbers: ", function() {
+describe("Determine the sequence of an array of numbers: ", () => {
 
-    describe("if its an empty array", function() {
+    describe("if its an empty array", () =>{
 
-      it(" should return 0 for an empty array", function() {
-        expect(myFile.aritGeo([])).equal(0);
+      it(" should return 0 for an empty array", () => {
+        assert.equal(myFile.aritGeo([]), 0);
       });
 
     });
 
-    describe("for an arithmetic sequence", function() {
+    describe("for an arithmetic sequence", () =>{
 
-      it("should return `Arithmetic` for [2, 4, 6, 8, 10]", function() {
-        expect(myFile.aritGeo([2, 4, 6, 8, 10])).equal('Arithmetic');
+      it("should return `Arithmetic` for [2, 4, 6, 8, 10]", () => {
+        assert.equal(myFile.aritGeo([2, 4, 6, 8, 10]),'Arithmetic');
       });
 
-      it("should return `Arithmetic` for [5, 11, 17, 23, 29, 35, 41]", function() {
-        expect(myFile.aritGeo([5, 11, 17, 23, 29, 35, 41])).equal('Arithmetic');
+      it("should return `Arithmetic` for [5, 11, 17, 23, 29, 35, 41]", () => {
+        assert.equal(myFile.aritGeo([5, 11, 17, 23, 29, 35, 41]),'Arithmetic');
       });
 
-      it("should return `Arithmetic` for [15, 10, 5, 0, -5, -10]", function() {
-        expect(myFile.aritGeo([15, 10, 5, 0, -5, -10])).equal('Arithmetic');
-      });
-
-    });
-
-    describe("Case for a geometric sequence", function() {
-
-      it("should return `Geometric` for [2, 6, 18, 54, 162]", function() {
-        expect(myFile.aritGeo([2, 4, 8, 16, 32])).equal('Geometric');
-      });
-
-      it("should return `Geometric` for [−128, 64, −32, 16, −8]", function() {
-        expect(myFile.aritGeo([-81, -27, -9, -3])).equal('Geometric');
+      it("should return `Arithmetic` for [15, 10, 5, 0, -5, -10]", () => {
+        assert.equal(myFile.aritGeo([15, 10, 5, 0, -5, -10]),'Arithmetic');
       });
 
     });
 
-    describe("Case for neither arithmetic nor geometric sequence", function() {
+    describe("Case for a geometric sequence", () => {
 
-      it("should return -1 for [1, 2, 3, 5, 8]", function() {
-        expect(myFile.aritGeo([1, 2, 3, 5, 8])).equal(-1);
+      it("should return `Geometric` for [2, 4, 8, 16, 32]", () => {
+        assert.equal(myFile.aritGeo([2, 4, 8, 16, 32]),'Geometric');
       });
 
-      it("should return -1 for [1, 3, 6, 10, 15]", function() {
-        expect(myFile.aritGeo([1, 3, 6, 10, 15])).equal(-1);
+      it("should return `Geometric` for [-81, -27, -9, -3]", () => {
+        assert.equal(myFile.aritGeo([-81, -27, -9, -3]),'Geometric');
       });
 
-      it("should return -1 for [1, 8, 27, 64, 125]", function() {
-        expect(myFile.aritGeo([1, 8, 27, 64, 125])).equal(-1);
+       it("should return `Geometric` for [-243, 81, -27, 9, −3]", () => {
+        assert.equal(myFile.aritGeo([-243, 81, -27, 9]),'Geometric');
+      });
+
+    });
+
+    describe("Case for neither arithmetic nor geometric sequence", () => {
+
+      it("should return -1 for [1, 2, 3, 5, 8]", () => {
+        assert.equal(myFile.aritGeo([1, 2, 3, 5, 8]), -1);
+      });
+
+      it("should return -1 for [1, 3, 6, 10, 15]", () => {
+        assert.equal(myFile.aritGeo([1, 3, 6, 10, 15]), -1); 
+      });
+
+      it("should return -1 for [1, 8, 27, 64, 125]", () => {
+        assert.equal(myFile.aritGeo([1, 8, 27, 64, 125]), -1);
       });
       
     });
