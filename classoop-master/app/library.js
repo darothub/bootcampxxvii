@@ -1,29 +1,42 @@
 'use strict'
-var levelSymbol = Symbol();
-
-class Student{
-	constructor (name, height, weight){
-		this.name = name;
-		this.height = height;
-		this.weight = weight;
-		this[levelSymbol] = 0;
 
 
+class Bird{
+	constructor (){
+		this.wings = 2;
+		this.flight = {
+			north: 0,
+			south: 0
+		};
 	}
 
-	get levelSymbol(){
-		return this[levelSymbol];
-
-	}
-	set level(number){
-		if (number > 200){
-			return "You are not qualified for this program"
-		}
-		this[levelSymbol] = number;
+	fly (north, south){
+		this.flight =+ north;
+		this.flight =+south;
 
 	}
 	
+
 }
+
+class Fowl extends Bird {
+	constructor(name, color, weight){
+		super();
+		this.name = name
+		this.color = color;
+		this.weight = weight;
+		
+	}
+	
+	attribute(habitat){
+		return this.name +" with " + this.color + " color" + " and " + this.weight + " is found in " + habitat;
+	  
+	}
+}
+
+let adiye = new Fowl("Adiye","black", "12kg");
+console.log(adiye.attribute("egba"))
+
 
 
 module.exports = {
